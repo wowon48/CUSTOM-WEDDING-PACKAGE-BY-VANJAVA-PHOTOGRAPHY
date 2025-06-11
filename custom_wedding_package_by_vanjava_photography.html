@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CUSTOM WEDDING PACKAGE – BY VANJAVA PHOTOGRAPHY</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f8f8f8;
+    }
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h1 {
+      color: #b40000;
+      font-size: 1.8em;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .subjudul {
+      font-size: 1em;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #5a5a5a;
+    }
+    .section { margin-bottom: 20px; }
+    label { display: block; margin: 8px 0; font-size: 1em; }
+    .total {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #5a5a5a;
+      text-align: center;
+    }
+    .wa-button {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .wa-button a {
+      display: inline-block;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .wa-button a:hover { background-color: #1da851; }
+    @media (max-width: 480px) {
+      body { padding: 10px; }
+      h1 { font-size: 1.5em; }
+      label { font-size: 0.95em; }
+      .total { font-size: 1.2em; }
+    }
+    input[type="text"], input[type="date"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>CUSTOM WEDDING PACKAGE – BY VANJAVA PHOTOGRAPHY</h1>
+    <div class="subjudul">
+      Selamat datang di fitur Build Your Own Package dari Vanjava Photography!<br>
+      📸 Pilih durasi, output, dan tambahan sesuai kebutuhanmu.<br>
+      💸 Di akhir form, kamu akan langsung dapat total estimasi harga.<br>
+      🗓 Booking akan dikonfirmasi via WhatsApp.
+    </div>
+
+    <div class="section">
+      <label>1. Nama Lengkap</label>
+      <input type="text" id="nama" placeholder="Nama lengkap kamu">
+      <label>2. Nomor WhatsApp Aktif</label>
+      <input type="text" id="nowa" placeholder="Contoh: 0856xxxxxxx">
+      <label>3. Tanggal Acara</label>
+      <input type="date" id="tanggal">
+    </div>
+
+    <div class="section">
+      <h3>4. Pilih Durasi Acara</h3>
+      <label><input type="radio" name="durasi" value="1000000" data-label="Akad / Resepsi saja"> Akad / Resepsi saja (Rp 1.000.000)</label>
+      <label><input type="radio" name="durasi" value="1500000" data-label="Half Day"> Half Day (Rp 1.500.000)</label>
+      <label><input type="radio" name="durasi" value="2000000" data-label="Full Day"> Full Day (Rp 2.000.000)</label>
+    </div>
+
+    <div class="section">
+      <h3>5. Tambah Fotografer</h3>
+      <label><input type="checkbox" class="opsi" value="500000" data-label="Tambah fotografer ke-2"> Tambah fotografer ke-2 (+Rp 500.000)</label>
+    </div>
+
+    <div class="section">
+      <h3>6. Output Foto</h3>
+      <label><input type="checkbox" class="opsi" value="300000" data-label="Tambah 100 foto edited"> Tambah 100 foto edited (+Rp 300.000)</label>
+    </div>
+
+    <div class="section">
+      <h3>7. Produk Fisik</h3>
+      <label><input type="checkbox" class="opsi" value="75000" data-label="USB Drive"> USB Drive (Rp 75.000)</label>
+      <label><input type="checkbox" class="opsi" value="150000" data-label="Album Softcover A5"> Album Softcover A5 (Rp 150.000)</label>
+      <label><input type="checkbox" class="opsi" value="350000" data-label="Album Hardcover A4"> Album Hardcover A4 (Rp 350.000)</label>
+      <label><input type="checkbox" class="opsi" value="100000" data-label="Cetak 10 foto 10R"> Cetak 10 foto 10R (Rp 100.000)</label>
+      <label><input type="checkbox" class="opsi" value="250000" data-label="Kanvas 30x40"> Kanvas 30x40 (Rp 250.000)</label>
+    </div>
+
+    <div class="section">
+      <h3>8. Layanan Tambahan</h3>
+      <label><input type="checkbox" class="opsi" value="1200000" data-label="Video Highlight"> Video Highlight (Rp 1.200.000)</label>
+      <label><input type="checkbox" class="opsi" value="500000" data-label="Drone"> Drone (Rp 500.000)</label>
+      <label><input type="checkbox" class="opsi" value="300000" data-label="Prewedding Mini Session"> Prewedding Mini Session (Rp 300.000)</label>
+      <label><input type="checkbox" class="opsi" value="800000" data-label="Photobooth"> Photobooth (Rp 800.000)</label>
+    </div>
+
+    <div class="total">Total Estimasi: Rp <span id="total">0</span></div>
+
+    <div class="wa-button">
+      <a href="#" id="wa-link" target="_blank">Kirim ke WhatsApp</a>
+    </div>
+  </div>
+
+  <script>
+    const durasiRadios = document.getElementsByName('durasi');
+    const opsiCheckboxes = document.querySelectorAll('.opsi');
+    const totalEl = document.getElementById('total');
+    const waLink = document.getElementById('wa-link');
+
+    function hitungTotal() {
+      let total = 0;
+      let durasi = '';
+      let fotografer = [];
+      let output = [];
+      let produk = [];
+      let layanan = [];
+
+      durasiRadios.forEach(radio => {
+        if (radio.checked) {
+          total += parseInt(radio.value);
+          durasi = `${radio.dataset.label} (Rp ${parseInt(radio.value).toLocaleString('id-ID')})`;
+        }
+      });
+
+      opsiCheckboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+          total += parseInt(checkbox.value);
+          const kategori = checkbox.closest('.section').querySelector('h3').textContent;
+          if (kategori.includes('Fotografer')) fotografer.push(`${checkbox.dataset.label} (Rp ${parseInt(checkbox.value).toLocaleString('id-ID')})`);
+          if (kategori.includes('Output')) output.push(`${checkbox.dataset.label} (Rp ${parseInt(checkbox.value).toLocaleString('id-ID')})`);
+          if (kategori.includes('Produk')) produk.push(`${checkbox.dataset.label} (Rp ${parseInt(checkbox.value).toLocaleString('id-ID')})`);
+          if (kategori.includes('Layanan')) layanan.push(`${checkbox.dataset.label} (Rp ${parseInt(checkbox.value).toLocaleString('id-ID')})`);
+        }
+      });
+
+      totalEl.textContent = total.toLocaleString('id-ID');
+
+      const nama = document.getElementById('nama').value.trim() || '(nama)';
+      const nowa = document.getElementById('nowa').value.trim() || '0856xxxxxxx';
+      const tanggal = document.getElementById('tanggal').value || '(tanggal acara)';
+
+      const pesan = `Halo Vanjava! Saya ${nama} sudah menghitung paket wedding saya di tanggal ${tanggal} dengan rincian sebagai berikut:%0A` +
+        `1. Durasi Acara:%0A${durasi || '-'}%0A` +
+        `2. Tambah Fotografer :%0A${fotografer.join('%0A') || '-'}%0A` +
+        `3. Pilih Output Foto%0A${output.join('%0A') || '-'}%0A` +
+        `4.Tambah Produk Fisik%0A${produk.join('%0A') || '-'}%0A` +
+        `5. Tambah Layanan Tambahan%0A${layanan.join('%0A') || '-'}%0A%0A` +
+        `*Total Harga : Rp ${total.toLocaleString('id-ID')}*%0A%0A` +
+        `“Admin kami akan menghubungi kamu lewat WhatsApp untuk finalisasi dan cek slot tanggal. Terima kasih!”`;
+
+      const noWaFormat = nowa.replace(/^0/, '62');
+      const link = `https://wa.me/${noWaFormat}?text=${encodeURIComponent(pesan)}`;
+      waLink.href = link;
+    }
+
+    durasiRadios.forEach(r => r.addEventListener('change', hitungTotal));
+    opsiCheckboxes.forEach(c => c.addEventListener('change', hitungTotal));
+    document.getElementById('nama').addEventListener('input', hitungTotal);
+    document.getElementById('nowa').addEventListener('input', hitungTotal);
+    document.getElementById('tanggal').addEventListener('input', hitungTotal);
+  </script>
+</body>
+</html>
